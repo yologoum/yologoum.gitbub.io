@@ -10,10 +10,10 @@ Goum Portfolio
 
 ## 포트폴리오 접속 주소
 
-###메인화면
+### 메인화면
 ```
 https://yologoum.github.io
 ```
-##1번 프로젝트 
+### 1번 프로젝트 
 ```
-https://yologoum.github.io/first
+https://yologoum.github.io/first/first.html
