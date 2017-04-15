@@ -1,4 +1,4 @@
-# yologoum.gitbub.io
+# yologoum.github.io
 Goum Portfolio
 
 ## 포트폴리오를 제작하는 동안 사용한 도구
