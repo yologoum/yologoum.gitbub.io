@@ -1,0 +1,28 @@
+*{margin:0; padding:0;}
+li{list-style:none;}
+body{font-family: "Questrial",Arial,Helvetica,sans-serif; font-size:11px; color:#555}
+a{color:#555; text-decoration:none;}
+
+
+.headerInner{max-width:1200px; margin:0 auto;}
+.topUtil{border-bottom:1px solid #eee; width:100%;}
+.topUtil .headerInner {overflow:hidden; height:60px;}
+.topUtil .headerInner > ul {display:table; float:left; height:60px;}
+.topUtil .headerInner > ul:nth-child(2){float:right;}
+.topUtil .headerInner > ul > li{display:table-cell; vertical-align:middle; font-size:10px; font-weight:bold; border-right:1px solid #eee; padding:10px 20px;}
+.topUtil .headerInner > ul > li:first-child{border-left:1px solid #eee;}
+.topUtil .headerInner > ul > li > span{color:#888; font-weight:normal;}
+.topUtil .headerInner > ul > li i{width:22px; height:40px; text-align:center;}
+.topUtil .headerInner > ul > li i.compare{background:url(../images/icon/compare.png)no-repeat center;}
+.cartView{display:none;}
+
+.gnb .headerInner{height:98px; padding:20px 0; box-sizing:border-box;}
+.gnb h1{display:inline-block;}
+.gnb h1 a {display:block;}
+.gnb nav{float:right; padding:12px 0;}
+.gnb nav ul li{float:left; padding:0 20px; height:33px;
+line-height:33px; cursor:pointer;}
+.gnb nav ul li a{font-weight:bold;}
+.gnb nav ul li:hover {display:block; background:#b8cd06; border-radius:25px;}
+.gnb nav ul li:hover a{color:#fff;}
+.gnb nav .subMenu{display:none;}

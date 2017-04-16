@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <title>Hanpixel</title>
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/script.js"></script>
     </head>
@@ -33,8 +34,8 @@
                                <li>GEP</li>
                            </ul>
                        </li>
-                       <li><a href="" title="Wishlist"></a></li>
-                       <li><a href=""></a></li>
+                       <li><a href="#" title="Wishlist" class="wishlist"><i class="fa fa-heart-o"></i></a></li>
+                       <li><a href="#" title="compare" class="compare"><i class="fa fa-arrows-alt"></i></a></li>
                        <li>
                            <div>
                                <a href="#">
@@ -45,23 +46,102 @@
                                    </span>
                                </a>
                            </div>
+                           <div class="cartView">
+                               <h1>AN EMPTY CART</h1>
+                               <p>You have no item in your shopping cart.</p>
+                           </div>
                        </li>
                    </ul>
                </div>
-               <div class="gnb">
-                   <div class="headerInner">
-                       <h1><img src="images/com/logo.png" alt="EXZO"></h1>
-                       <nav>
-                           <ul>
-                               <li>HOME</li>
-                               <li>PRODUCT</li>
-                               <li>PAGES</li>
-                               <li>GALLERY</li>
-                               <li>BLOG</li>
-                               <li>Search</li>
-                           </ul>
-                       </nav>
-                   </div>
+           </div>
+           <div class="gnb">
+               <div class="headerInner">
+                   <h1><a href="#"><img src="images/com/logo.png" alt="EXZO"></a></h1>
+                   <nav>
+                       <ul>
+                           <li>
+                               <a href="#">HOME</a>
+                               <ul class="subMenu">
+                                   <li><a href="#">home1</a></li>
+                                   <li>
+                                       <a href="#">home2</a>
+                                       <ul>
+                                           <li><a href="#">Video Banner</a></li>
+                                           <li><a href="#">Product Slider</a></li>
+                                           <li><a href="#">Static Banner</a></li>
+                                           <li><a href="#">Product Carousel</a></li>
+                                       </ul>
+                                   </li>
+                                   <li><a href="#">home3</a></li>
+                                   <li><a href="#">home4</a></li>
+                               </ul>
+                           </li>
+                           <li>
+                               <a href="#">PRODUCT</a>
+                               <div class="subMenu">
+                                   <ul>
+                                       <li><a href="#">ACCESSORIES</a></li>
+                                       <li><a href="#">HEADPHONES</a></li>
+                                       <li><a href="#">LAPTOPS</a></li>
+                                       <li><a href="#">SMARTPHONES</a></li>
+                                       <li><a href="#">SMARTWATCHES</a></li>
+                                       <li><a href="#">SPORT GADGETS</a></li>
+                                       <li><a href="#">GADGETS FOR HOUSE</a></li>
+                                   </ul>
+                                   <div>
+                                       <a href="">
+                                           <img src="" alt="">
+                                           <p>GOLD WITH NOSE BAR <br/><span>$449.99</span></p>
+                                       </a>
+                                   </div>
+                                   <div>
+                                       <img src="" alt="">
+                                   </div>
+                               </div>
+                           </li>
+                           <li>
+                               <a href="#">PAGES</a>
+                               <ul class="subMenu">
+                                   <li><a href="#">About US</a></li>
+                                   <li><a href="#">Contect US</a></li>
+                                   <li><a href="#">Services</a></li>
+                               </ul>
+                           </li>
+                           <li><a href="#">GALLERY</a></li>
+                           <li>
+                               <a href="#">BLOG</a>
+                               <div class="subMenu">
+                                   <ul>
+                                       <li><a href="#">HOME</a></li>
+                                       <li><a href="#">ABOUT US</a></li>
+                                       <li><a href="#">PRODUCTS</a></li>
+                                       <li><a href="#">SERVICES</a></li>
+                                       <li><a href="#">BLOG</a></li>
+                                       <li><a href="#">GALLERY</a></li>
+                                       <li><a href="#">CONTACT</a></li>
+                                   </ul>
+                                   <ul>
+                                       <li><a href="#">ACCESSORIES</a></li>
+                                       <li><a href="#">HEADPHONES</a></li>
+                                       <li><a href="#">LAPTOPS</a></li>
+                                       <li><a href="#">SMARTPHONES</a></li>
+                                       <li><a href="#">SMARTWATCHES</a></li>
+                                       <li><a href="#">SPORT GADGETS</a></li>
+                                       <li><a href="#">GADGETS FOR HOUSE</a></li>
+                                   </ul>
+                               </div>
+                            </li>
+                           <li>
+                               <a href="#">Search</a>
+                               <div class="subMenu">
+                                   <form action="">
+                                       <input type="text">
+                                       <button type="submit"></button>
+                                   </form>
+                               </div>
+                            </li>
+                       </ul>
+                   </nav>
                </div>
            </div>
        </header>
