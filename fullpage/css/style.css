@@ -1,0 +1,8 @@
+*{margin:0; padding:0;}
+
+#section01{background-image:url(../images/bg1.jpg);}
+#section02{background-image:url(../images/bg2.jpg);}
+#section03{background-image:url(../images/bg3.jpg);}
+#section04{background-image:url(../images/bg4.jpg);}
+
+.section{text-align:center; color:pink; font-size:100px; font-family: impact; background-size:cover; background-attachment:fixed;}
