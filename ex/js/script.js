@@ -1,33 +1,33 @@
 $(document).ready(function(){
-    
+
     //mouseenter mouseleave
     //mouseover mouseout
     $('.menu .drop a').on('mouseenter', function(){
-        
+
         $(this).siblings('.sub').addClass('active');
         $(this).addClass('on');
-        
-//       $('.sub').show(); 
+
+//       $('.sub').show();
 //       $('.sub').stop().slideDown();
 //        $(this).siblings.show();
 //        $('.sub').animate({top: '100%', opacity : 1});
     });
-    
+
     $('.menu .drop').on('mouseleave', function(){
-        
+
         $(this).children('.sub').removeClass('active');
         $(this).children('a').removeClass('on');
-        
-//       $('.sub').hide(); 
+
+//       $('.sub').hide();
 //       $('.sub').stop().slideUp();
 //        $(this).children('.sub').animate({top:'120%', opcity:0}, function(){
 //            $('.sub').hide();
 //        });
-        
+
     });
     //슬라이드 업다운은 누적이 된다. 누적없게 스탑을 사용한다. 스탑은 모든걸 멈추게 해서 위험하니까 잘생각하고 쓰기
-    
-    //on 메소드 
+
+    //on 메소드
     /*
         처음에는 그냥 click을 사용했다.
         요즘은 on메소드를 사용해서 click 등의 이벤트를 2개 넣을 수있다.
@@ -48,7 +48,7 @@ $(document).ready(function(){
 //            $(this).css('width',500);
 //        }
 //    });
-//    
+//
 //    $('.box2').on({
 //        mouseover : function(){
 //            $(this).css('background','skyblue');
@@ -56,9 +56,9 @@ $(document).ready(function(){
 //        mouseout : function(){
 //            $(this).css('background','darkblue');
 //        }
-//    
+//
 //    });
-    
+
 //    $('.box1').on({
 //        mouseenter : function(){
 //            $(this).addClass('color');
@@ -67,16 +67,16 @@ $(document).ready(function(){
 //            $(this).removeClass('color');
 //        }
 //    })
-    
-    
+
+
     //hover는 함수를 두개 가질수 있다.
 //    $('.box1').hover(function(){
 //        $(this).addClass('color');
 //    },function(){
 //        $(this).removeClass('color');
 //    })
-    
-    //hover의 기능이 같다면 
+
+    //hover의 기능이 같다면
     $('.box1').hover(function(){
         $(this).toggleClass('color');
     });
