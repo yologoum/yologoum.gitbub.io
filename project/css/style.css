@@ -2,8 +2,10 @@
 li{list-style:none;}
 body{font-family: "Questrial",Arial,Helvetica,sans-serif; font-size:11px; color:#555; background:#f7f7f7;}
 a{color:#555; text-decoration:none;}
+.clearfix:after{content:""; display:block; clear:both;}
 
-
+/*메뉴 부분*/
+header{height:159px;}
 .headerInner{max-width:1200px; margin:0 auto;}
 .topUtil{border-bottom:1px solid #eee; width:100%; background:#fff;}
 .topUtil .headerInner {overflow:hidden; height:60px;}
@@ -12,20 +14,27 @@ a{color:#555; text-decoration:none;}
 .topUtil .headerInner > ul > li{display:table-cell; vertical-align:middle; font-size:10px; font-weight:bold; border-right:1px solid #eee; padding:10px 20px;}
 .topUtil .headerInner > ul > li:first-child{border-left:1px solid #eee;}
 .topUtil .headerInner > ul > li > span{color:#888; font-weight:normal;}
-.topUtil .headerInner > ul > li i{width:22px; height:40px; text-align:center;}
+.topUtil .headerInner > ul > li i{width:22px; text-align:center;}
 .topUtil .headerInner > ul > li i.compare{background:url(../images/icon/compare.png)no-repeat center;}
+.memberLink a{transition:all .3s ease; font-size:11px;}
+.memberLink a:hover{color:#b8cd06;}
 .cartView{display:none;}
 
 .gnb{box-shadow:0px 3px 5px rgba(0,0,0,0.1); background:#fff;}
-.gnb .headerInner{height:98px; padding:20px 0; box-sizing:border-box;}
-.gnb h1{display:inline-block;}
+.gnb.fix{position:fixed; z-index: 10; width: 100%; top: 0;}
+.gnb .headerInner{height:98px; box-sizing:border-box;}
+.gnb h1{display:inline-block; font-size:0; padding:20px 0;}
 .gnb h1 a {display:block;}
-.gnb nav{float:right; padding:12px 0;}
-.gnb nav ul li{float:left; padding:0 20px; height:33px;line-height:33px; cursor:pointer;}
+.gnb nav{float:right; position:relative;}
+.gnb nav ul{float:left;}
+.gnb nav ul .depth1{float:left; height:98px;cursor:pointer;}
 .gnb nav ul li a{font-weight:bold;}
-.gnb nav ul li:hover {display:block; background:#b8cd06; border-radius:25px;}
-.gnb nav ul li:hover a{color:#fff;}
-.gnb nav .subMenu{display:none;}
+.gnb nav ul .depth1 > a{display:block; border-radius:25px; line-height:34px; height:34px; padding:0 15px; margin:32px 0;}
+.gnb nav ul .depth1 > a.on{background:#b8cd06; color:#fff;}
+.gnb nav .subMenu{position:absolute; z-index:10; background:#fff; border-top:3px solid #b8cd06; right:0; top:120%; transition:all .3s ease; visibility:hidden; opacity:0;}
+.gnb nav .subMenu.show{top:100%; visibility:visible; opacity:1;}
+.gnb .search{float:right; margin-left:15px;}
+.gnb .search i{height:33px; font-size:18px; line-height:33px;}
 
 /**/
 .container{max-width:1200px; margin:0 auto;}
