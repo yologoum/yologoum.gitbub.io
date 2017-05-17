@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+/*레이어 팝업*/
+.layer{overflow:hidden;}
+#layer {display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.5); z-index:100;}
+#layer .layerPop {position:absolute;left:50%;top:50%;width:672px;height:700px; background:#fff; padding:30px; z-index:200; margin-left:-336px; margin-top:-350px; border-radius:3px; box-sizing:border-box;}
+.innerScroll{width:100%; height:481px; overflow:auto;}
+
+.layerTitle {position:relative; border-bottom:2px solid #b4b4b4; padding-bottom:14px; margin-bottom:30px; letter-spacing:-0.025em;}
+.layerTitle h1{font-size:26px; color:#000;}
+.layerTitle .btnClose{position:absolute; right:0; top:0; width:27px; height:26px; overflow:hidden; text-indent:-999px; background:url(../images/btn/btn-layer-close.png); display:block;}
+
+.layerContent {font-family:'NS'; font-size:17px; color:#333; position:relative; letter-spacing:-0.03em;}
+
+.layerBottom{padding:30px 0 0;}
+.btnFull {width:100%; font-size:20px; font-family:'NS'; height:54px; border-radius:3px; background:#537db9; color:#fff; display:block; line-height:54px; text-align:center;}
+
+/*contact*/
+.contact .innerScroll{height:565px;}
+.contact .layerContent p{margin-bottom:3px;}
+.contact .layerContent p span.caption{font-family:'dotum', sans-serif; font-size:12px; color:#537db9; position: absolute; right: 0;}
+.contact .layerContent label span{color:#537db9;}
+.contact .formRow{margin-bottom: 25px;}
+.contact .formCol{width:50%; float:left; }
+.contact .formCol:first-child{padding-right:10px; box-sizing:border-box;}
+.contact .replyChk label{font-size:14px; color:#555;}
+.contact .replyCol{display: inline-block; width:173px;}
+.contact .agreeArea > p:first-child{color:#537db9; margin-bottom:5px;}
+.contact .agreeChk{font-family:'dotum', sans-serif; font-size:12px; line-height:18px; padding-top:15px; text-indent:-26px; padding-left:26px;}
+.contact .infoGuide{border-radius:2px; background:#f7f7f7; font-family:'dotum', sans-serif; font-size:12px; font-weight:600; letter-spacing:-0.025em; line-height:16px; padding:15px 16px;}
+.contact .infoGuide p{color:#000; font-size:12px; font-family:'dotum', sans-serif; margin-bottom:7px; }
+.contact .infoGuide dt{color:#555; padding-left:8px; background:url(../images/bg/bul-dot.gif)no-repeat left center;}
+.contact .infoGuide dd{color:#777; font-weight:400; padding-left:8px; margin-bottom:5px;}
+
+/*map*/
+.map h2{font-size:17px; font-family:'NS'; letter-spacing:-0.03em; font-weight:600; margin-bottom:3px;}
+.map h2 ~ p{font-family:'dotum', sans-serif; font-size:12px; color:#537db9; margin-bottom:7px;}
+.mapArea{border:1px solid #ccc; border-radius:2px; padding:20px; text-align:center; margin-bottom:30px;}
+.mapArea img{max-width:449px; width:100%;}
+.mapRow:last-child .mapArea{margin-bottom:0;}
+
+/*privacy*/
+.privacy .layerContent{font-family:'dotum', sans-serif; font-size:12px; line-height:18px; }
+.privacyInner{height:421px; border:1px solid #ccc; border-radius:2px; padding:20px 0 20px 20px; box-sizing: border-box; overflow:auto;}
+.privacy p{margin-bottom:10px; padding-top:5px;}
+.privacy ol{background:#f2f2f2; border-radius:2px; padding:15px; line-height:22px; margin-bottom:10px;}
+.privacyBox{background:#f2f2f2; border-radius:2px; padding:15px;}
+.policyList{margin-bottom:0px; padding:10px 20px 6px; height:77px;}
+.policyList li{cursor:pointer;}
+.tabArea{position:relative; background:#fff; width:100%; height:481px; padding-top: 63px; box-sizing:border-box;}
+.tabArea .titleCover{width:25%; position:absolute;top: 0; left: 0;box-sizing: border-box; padding: 0 2px;}
+.tabArea .titleCover:nth-child(3){left: 25%;}
+.tabArea .titleCover:nth-child(5){left: 50%;}
+.tabArea .titleCover:nth-child(7){left: 75%;}
+.tabArea h2.on{background:#537db9; color:#fff; border:none;}
+.tabArea h2{background:#fff; border-radius:3px; height:43px; line-height:43px; font-size:14px; cursor:pointer; text-align:center; border:1px solid #ccc; font-family:'NS';}
+.tabArea .privacyInner{position:absolute; left:0; right:0; display:none; box-sizing: border-box;}
+.tabArea .privacyInner.on{display: block;}
+
+/*terms of use*/
+.terms h2{font-family:'dotum', sans-serif; font-size:12px; line-height:20px; font-weight:600; padding-top:15px;}
+.terms .layerContent{font-family:'dotum', sans-serif; font-size:12px; line-height:18px;}
+.terms p{margin-bottom:10px; padding-top:5px;}
+.terms .innerScroll{border:1px solid #ccc; border-radius:2px; padding:20px 0 20px 20px; box-sizing: border-box;}
+
+/*미디어쿼리*/
+@media screen and (max-width:980px) {
+    #layer .layerPop{width:100%; height:100%; left:0; top:0px; border-radius:0; margin:0; overflow:auto; position:fixed;}
+    .contact .innerScroll{height:auto;}
+    .map .innerScroll{height:auto;}
+}
+@media screen and (max-width:420px) {
+    .layerContent{font-size:16px;}
+    .innerScroll{width:100%; height:259px; overflow-y:scroll;}
+
+    .tabArea{height:281px; padding-top: 112px;}
+    .tabArea .titleCover{width:50%; position:absolute;top: 0; left: 0;box-sizing: border-box; padding: 0 2px;}
+    .tabArea .titleCover:nth-child(3){left: 50%;}
+    .tabArea .titleCover:nth-child(5){left: 0%; top:47px;}
+    .tabArea .titleCover:nth-child(7){left: 50%; top:47px;}
+    .privacyInner{height:179px;}
+
+
+    .contact .formCol{float:none; padding-right:0 !important; width:100%;}
+    .contact .formCol:first-child{padding-bottom:25px;}
+
+}

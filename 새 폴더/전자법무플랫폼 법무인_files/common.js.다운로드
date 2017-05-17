@@ -1,0 +1,205 @@
+$(document).ready(function(){
+	/*첫화면 모션*/
+	TweenMax.to(".mainCopy", 2, {alpha:1});
+	TweenMax.to(".randomBg", 2, {scale:1.1, opacity:1,  rotationZ : '0.01deg', ease:Power1.easeOut});
+
+    //Scroll Motion
+    var controller = new ScrollMagic.Controller();
+
+    // intro
+    var introTween = new TimelineMax();
+    introTween
+        .from(".intro .sectionTit", 1, {y:600, alpha:0, ease:Power3.easeOut})
+        .from(".intro .sectionSub", 0.5, {y:100 ,alpha:0, delay:0.8, ease:Power1.easeOut}, '0');
+    var introScene = new ScrollMagic.Scene({
+        triggerElement: ".intro",
+        reverse:false
+    })
+    .setTween(introTween)
+    .addTo(controller);
+
+    // service
+    var serviceTween = new TimelineMax();
+    serviceTween
+        .from(".service .sectionTit", 1, {y:600, alpha:0, ease:Power3.easeOut})
+        .staggerFrom(".service .sectionSub li", 0.5, {y:100 ,alpha:0, delay:0.8, ease:Back.easeOut}, 0.1, '0');
+    var serviceScene = new ScrollMagic.Scene({
+        triggerElement: ".service",
+        reverse:false
+    })
+    .setTween(serviceTween)
+    .addTo(controller);
+
+    // FAQ
+    var faqTween = new TimelineMax();
+    faqTween
+        .from(".faq .sectionTit", 1, {y:600, alpha:0, ease:Power3.easeOut})
+        .from(".faq .sectionSub", 0.5, {y:100 ,alpha:0, delay:0.8, ease:Power1.easeOut}, '0');
+    var faqScene = new ScrollMagic.Scene({
+        triggerElement: ".faq",
+        reverse:false
+    })
+    .setTween(faqTween)
+    .addTo(controller);
+
+    //footer
+    var footerTween = new TimelineMax();
+    footerTween
+        .from(".footer .sectionTit", 1, {y:600, alpha:0, ease:Power3.easeOut})
+        .staggerFrom(".footer .footRow", 0.5, {y:100 ,alpha:0, delay:0.8, ease:Power1.easeOut},0.1, '0');
+    var footerScene = new ScrollMagic.Scene({
+        triggerElement: ".footer",
+        reverse:false
+    })
+    .setTween(footerTween)
+    .addTo(controller);
+
+	//메인 랜덤배경
+	var menuType = ['black' , 'black' , 'white' , 'white' , 'white'];
+    var rNum = Math.floor(Math.random() * menuType.length);
+    //이미지 변경 부분
+    $('.mainSection .randomBg').css({'background-image': 'url(./images/bg/main-img' + rNum + '.jpg)' });
+    //랜덤 이미지 따른 내용 컬러변경
+    if( menuType[rNum] === 'black'){
+ 	   $('#lnb').addClass('black');
+ 	   $('.mainCopy').addClass('black');
+    }
+
+	//아코디언
+	$('.faqAccordion > li:eq(0) a').addClass('active').next().slideDown();
+
+    $('.faqAccordion a').click(function(j) {
+        var dropDown = $(this).closest('li').find('.answer');
+
+        $(this).closest('.faqAccordion').find('.answer').not(dropDown).slideUp();
+
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+        } else {
+            $(this).closest('.faqAccordion').find('a.active').removeClass('active');
+            $(this).addClass('active');
+        }
+
+        dropDown.stop(false, true).slideToggle();
+
+        j.preventDefault();
+    });
+
+	//관련웹사이트
+	$('.selectDiv p').on('click', function() {
+		$(this).parent().addClass('active');
+		return false;
+	});
+   $('.selectDiv').on('mouseleave', function(){
+	   $(this).removeClass('active');
+   });
+   $('.optionList a').on('click', function(){
+	   $('.selectDiv').removeClass('active');
+   });
+
+   //로고클릭시 최상단이동
+   var lnbHeight = $('#header').height();
+   $('#lnb h1').on('click', function(e){
+	   e.preventDefault();
+	   TweenMax.to( $( "html, body" ), 1, { scrollTop: 0, ease:Power1.easeOut} );
+   });
+
+   //skipcontent btn
+   $('.skipCon a').on('click', function(e){
+	   e.preventDefault();
+	   var skipTop = $(this).parent('.skipCon').parent('div').next('div').offset().top - lnbHeight;
+	   TweenMax.to( $( "html, body" ), 1, { scrollTop: skipTop, ease:Power1.easeOut} );
+   });
+
+   //메뉴클릭 해당 영역으로 이동
+   $('.menu .sub').on('click',function(e){
+	   e.preventDefault();
+	   var menuTop = $('.section').eq($(this).parent('li').index() + 1).offset().top -lnbHeight;
+	   TweenMax.to( $( "html, body" ), 1, { scrollTop: menuTop, ease:Power1.easeOut} );
+   });
+
+   //pageNav
+   $('.pageNav li').on('click', function (e) {
+	   e.preventDefault();
+	   $(this).addClass('on').siblings().removeClass('on');
+	   var myTop = $('.section').eq($(this).index()).offset().top - lnbHeight;
+	   TweenMax.to( $( "html, body" ), 1, { scrollTop: myTop, ease:Power1.easeOut} );
+   });
+
+   	$(window).scroll(function() {
+   		//LNB on off
+   		var sct = $(window).scrollTop();
+   		if (sct >= 200) {
+   			$('#header').addClass('on');
+   		} else {
+   			$('#header').removeClass('on');
+   		}
+
+   		//pageNav
+   		if(sct >= $('.mainSection').offset().top && sct < $('.intro').offset().top - lnbHeight){
+   			$('.pageNav li').eq(0).addClass('on').siblings().removeClass('on');
+   		}else if(sct >= $('.intro').offset().top - lnbHeight && sct < $('.service').offset().top - lnbHeight){
+   			$('.pageNav li').eq(1).addClass('on').siblings().removeClass('on');
+   		}else if(sct >= $('.service').offset().top - lnbHeight && sct < $('.faq').offset().top - lnbHeight){
+   			$('.pageNav li').eq(2).addClass('on').siblings().removeClass('on');
+   		}else if(sct >= $('.faq').offset().top - lnbHeight && sct < $('.footer').offset().top - lnbHeight){
+   			$('.pageNav li').eq(3).addClass('on').siblings().removeClass('on');
+   		}else if(sct >= $('.footer').offset().top - lnbHeight ){
+   			$('.pageNav li').eq(4).addClass('on').siblings().removeClass('on');
+   		}
+   		var scrollHeight = $(document).height();
+   		var scrollPosition = $(window).height() + $(window).scrollTop();
+   		if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+   			$('.pageNav li').eq(4).addClass('on').siblings().removeClass('on');
+   		}
+   	}).scroll();
+
+	//모바일 메뉴 열기 닫기
+   	$('.mMenu').on('click', function(){
+   		if( $('#header, .headBg').hasClass('active') === true){
+			$('body').css('overflow','auto');
+   			$('.mHead').stop().slideUp(300, function () {
+   				$('#header').removeClass('active');
+   				$('.headBg').removeClass('active');
+   			});
+   		}else{
+			$('body').css('overflow','hidden');
+   			$('#header').addClass('active');
+   			$('.headBg').addClass('active');
+   			$('.mHead').stop().slideDown(300);
+   		}
+   	});
+	//sub메뉴 클릭 이벤트
+   	$('.mHead .sub').on('click', function(){
+		$('#header').removeClass('active');
+		$('.headBg').removeClass('active');
+		$('body').css('overflow','auto');
+		$('.mHead').stop().slideUp(300);
+   	});
+
+	$(window).resize( function(){
+		if($('body').width() >= 1024){
+			$('body').css('overflow','auto');
+		} else{
+			$('body').css('overflow','hidden');
+		}
+		lnbHeight = $('#header').height();
+	});
+
+});
+
+//layer popup
+function layer(url) {
+	if (url === '' || url === null) {
+		$('#layer').fadeOut(350);
+        $('body').removeClass('layer');
+		// $('body').unbind('touchmove', function(e){e.preventDefault()}); //스크롤 방지 해제
+	} else {
+        url = 'layer/' + url + '.html'; // 팝업 경로
+		$('#layer').load(url, function() {
+			$('#layer').fadeIn(350);
+            $('body').addClass('layer');
+			// $('body').bind('touchmove', function(e){e.preventDefault()}); //스크롤방지
+		});
+	}
+}
